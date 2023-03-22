@@ -6,3 +6,4 @@ joblib==1.1.0
 psx-data-reader==0.0.6
 numpy==1.22.4
 ipython==8.4.0
+statistics==1.0.3.5
