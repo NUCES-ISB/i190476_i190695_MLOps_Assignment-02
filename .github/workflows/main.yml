@@ -1,6 +1,6 @@
-name: MLOps Assignment 1
+name: MLOps Assignment 2
 on: 
-  push:
+  pull_request:
     branches: [ main ] 
 jobs:
   build:
