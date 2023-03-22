@@ -76,4 +76,5 @@ def predict():
     return render_template('predict.html')
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, port=8090)
+    # Do not use debug=True for production/deployment
+    socketio.run(app, port=8090)
