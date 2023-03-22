@@ -22,7 +22,7 @@ def daemon_thread():
     while True:
         dummy_sensor_value = round(random() * 100, 3)
         socketio.emit('updateData', {'value': dummy_sensor_value, 'date': get_current_datetime()})
-        socketio.sleep(100)
+        socketio.sleep(10)
 
 @socketio.on('connect')
 def connect():
