@@ -37,7 +37,7 @@ def train():
     # Support Vector Regressor(SVR) algorithm
     clf_SVR = SVR(kernel='rbf')
     clf_SVR.fit(X_train, y_train)
-    dump(clf_SVR, "SVR_MODEL")
+    dump(clf_SVR, "MODEL_SVR")
     print("Training SVR score and regression:")
     print(clf_SVR.score(X_train, y_train))
     predicted = clf_SVR.predict(X_train)
@@ -46,7 +46,7 @@ def train():
     # Random Forest Regressor algorithm
     clf_rfr = RandomForestRegressor()
     clf_rfr.fit(X_train, y_train)
-    dump(clf_rfr, "RFR_MODEL")
+    dump(clf_rfr, "MODEL_RFR")
     print("Training RFR score and regression:")
     print(clf_rfr.score(X_train, y_train))
     predicted = clf_rfr.predict(X_train)
