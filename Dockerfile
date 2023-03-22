@@ -8,7 +8,7 @@ COPY requirements.txt ./requirements.txt
 # Copy the Makefile for installation
 COPY Makefile ./Makefile
 # Copy the training file
-COPY live_stream_training_data.csv ./live_stream_training.csv
+COPY live_stream_training_data.csv ./live_stream_training_data.csv
 # Copy the HTML files for Flask server
 COPY templates/live.html ./templates/live.html
 COPY templates/predict.html ./templates/predict.html
