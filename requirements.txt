@@ -1,0 +1,7 @@
+flask==2.2.3
+flask-socketio==5.3.3
+scikit-learn==1.1.1
+pandas==1.4.3
+joblib==1.1.0
+psx-data-reader==0.0.6
+numpy==1.22.4
