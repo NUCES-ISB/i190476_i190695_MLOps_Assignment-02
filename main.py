@@ -3,11 +3,11 @@ from flask_socketio import SocketIO
 import json, os
 import pandas as pd
 from io import StringIO
-from data_fetch import get_training_data, get_dataframe_for_testing
 from threading import Lock
 from datetime import datetime
 from random import random
 from IPython.display import HTML
+from inference import inference
 
 app = Flask(__name__, template_folder='templates')
 socketio = SocketIO(app, cors_allowed_origins='*')
@@ -21,9 +21,13 @@ def get_current_datetime():
 
 def daemon_thread():
     while True:
-        dummy_sensor_value = round(random() * 100, 3)
-        socketio.emit('updateData', {'value': dummy_sensor_value, 'date': get_current_datetime()})
-        socketio.sleep(10)
+        #dummy_sensor_value = round(random() * 100, 3)
+        data = inference()
+        socketio.emit(
+            'updateData',
+            {'value': data['Decision'].iloc[len(data)-1], 'date': get_current_datetime()}
+        )
+        socketio.sleep(60)
 
 @socketio.on('connect')
 def connect():
