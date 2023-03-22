@@ -21,5 +21,8 @@ COPY main.py ./main.py
 # Install the dependencies
 RUN make install
 # Now, in order of appearance, run the train file and generate the models, then run the Flask server to initiate your own server
-RUN python train.py && python main.py
-ENTRYPOINT ["/bin/bash"]
+RUN python train.py
+# Setting the environment variable for flask app
+ENV FLASK_APP=main.py
+# Command for running flask app
+CMD ["python", "-m", "flask", "run", "--host", "0.0.0.0"]
