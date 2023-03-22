@@ -4,8 +4,9 @@
         <title>PSX Predictor</title>
     </head>
     <body>
-        <h1>Something about prediction</h1>
+        <h1>Predict your values here</h1>
         <input id="click" type="button" onclick="redirect()" value="Watch live data"/>
+        <h4>Upload a CSV file below to predict the Close values</h4>
         <form onsubmit="predict()" enctype="multipart/form-data" action="http://localhost:8090/test" method="POST">
             <input type="file" id="testingFile" name="file" value="Upload CSV file"/>
             <input type="submit"/>

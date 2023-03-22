@@ -2,11 +2,8 @@ from flask import Flask, render_template, request
 from flask_socketio import SocketIO
 import json, os
 import pandas as pd
-from io import StringIO
 from threading import Lock
 from datetime import datetime
-from random import random
-from IPython.display import HTML
 from inference import inference
 
 app = Flask(__name__, template_folder='templates')
@@ -25,7 +22,8 @@ def daemon_thread():
         data = inference()
         socketio.emit(
             'updateData',
-            {'value': data['Decision'].iloc[len(data)-1], 'date': get_current_datetime()}
+            {'value': data['Decision'].iloc[len(data)-1],
+            'date': get_current_datetime()}
         )
         socketio.sleep(60)
 
@@ -72,12 +70,10 @@ def test():
             tables=[df.to_html(classes='data')],
             titles=df.columns.values
         )
-    
-    
 
 @app.route('/predict',methods=["GET","POST"])
 def predict():
     return render_template('predict.html')
 
 if __name__ == '__main__':
-    socketio.run(app,debug=True,port=8090)
+    socketio.run(app, debug=True, port=8090)

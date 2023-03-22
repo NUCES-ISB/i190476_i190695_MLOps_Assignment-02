@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <title>Aw hell yeah</title>
+        <title>PSX Predictor</title>
     </head>
     <body>
-        <h1>Predictor1</h1>
+        <h1>Dashboard</h1>
         <input id="click" type="button" onclick="redirect()" value="Predict your own values"/>
         <div class="container">
-            <h1>Real Time Pakistan Banks Stocks Display</h1>
+            <h3>Predicted Close value based on trained and tested dataset of various banks</h3>
+            <h5>Prediction is entered every 60 seconds</h5>
             <canvas id="stocks" width="200" height="100"></canvas>
         </div>
     </body>
@@ -37,10 +38,10 @@
             const stocks = new Chart(context, {
                 type: "line",
                 data: {
-                    datasets: [{ label: 'Volume', }],
+                    datasets: [{ label: 'Close', }],
                 },
                 options: {
-                    borderWidth: 3,
+                    borderWidth: 10,
                     borderColor: ['rgba(0,127,127,1)'],
                 },
             });
@@ -60,7 +61,7 @@
                 });
             }
 
-            const MAX_DATA_COUNT = 10;
+            const MAX_DATA_COUNT = 100;
             var socket = io.connect();
 
             socket.on('updateData', function(msg) {
