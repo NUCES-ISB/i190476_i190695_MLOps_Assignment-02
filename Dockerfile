@@ -1,4 +1,4 @@
-FROM python:3.9.16
+FROM python:3.9.16 
 # Set the working directory of the project
 WORKDIR /
 # Create a new folder for storing Flask webpages
