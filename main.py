@@ -7,6 +7,7 @@ from data_fetch import get_training_data, get_dataframe_for_testing
 from threading import Lock
 from datetime import datetime
 from random import random
+from IPython.display import HTML
 
 app = Flask(__name__, template_folder='templates')
 socketio = SocketIO(app, cors_allowed_origins='*')
@@ -62,7 +63,11 @@ def test():
         os.remove('temp.csv')
         print(df)
         # Now use that CSV to test the values, and send answer as CSV as well
-        return render_template('predict.html')
+        return render_template(
+            'predict.html',
+            tables=[df.to_html(classes='data')],
+            titles=df.columns.values
+        )
     
     
 
