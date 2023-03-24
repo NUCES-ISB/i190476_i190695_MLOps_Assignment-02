@@ -4,8 +4,6 @@ pipeline {
     environment {
 
         PATH = "C:\\WINDOWS\\SYSTEM32"
-        
-        docker = "C:\\Program Files\\Docker\\Docker\\resources\\bin"
 
     }
 
@@ -20,7 +18,7 @@ pipeline {
         
         stage('Build image') {
             steps {
-                bat '''docker -v'''
+                set '''docker -v'''
             }
         }
         
