@@ -14,15 +14,7 @@ pipeline {
 //                     bat '''rd /q /s .'''
 //                 }
 //             }
-//         }
-         
-         
-        stage('Clone repository') {
-            steps {
-                bat '''git clone https://github.com/NUCES-ISB/i190476_i190695_MLOps_Assignment-02.git .'''
-            }
-        }
-        
+//         }        
         
         stage('Build image') {
             steps {
