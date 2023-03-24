@@ -4,7 +4,7 @@ pipeline {
     environment {
 
         PATH = "C:\\WINDOWS\\SYSTEM32"
-        docker = "C:\Program Files\Docker\Docker\resources\bin"
+        docker = "C:\\Program Files\\Docker\\Docker\\resources\\bin"
     }
 
     stages {
