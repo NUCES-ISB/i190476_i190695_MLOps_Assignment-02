@@ -18,7 +18,7 @@ pipeline {
         
         stage('Build image') {
             steps {
-                set '''docker -v'''
+                set 
             }
         }
         
