@@ -1,12 +1,40 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build Dockerfile') {
+//        stage('delete Existing clone') {
+//             steps {
+//                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+//                     bat '''rd /q /s .'''
+//                 }
+//             }
+//         }
+         
+         
+        stage('Clone repository') {
             steps {
-                script{
-                    sh 'docker build -t i190476_i190695_a2 .'
+                bat '''git clone https://github.com/NUCES-ISB/i190700_i192008_Assignment_2.git .'''
+            }
+        }
+        
+        
+        stage('Build image') {
+            steps {
+                script {
+                    dockerImage = docker.build("anashameed/w_app:latest")
                 }
             }
         }
+        
+//         stage('Push image') {
+//             steps {
+//                 script {
+//                     withDockerRegistry([credentialsId: "docker_hub", url: ""]) {
+//                         dockerImage.push()
+//                     }
+//                 }
+//             }
+//         }
+        
     }
 }
