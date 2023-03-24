@@ -20,9 +20,7 @@ pipeline {
         
         stage('Build image') {
             steps {
-                script {
-                    dockerImage = docker.build("abdullahajaz/i190476_i190695_test:latest")
-                }
+                bat '''docker -v'''
             }
         }
         
