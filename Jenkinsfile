@@ -6,18 +6,13 @@ pipeline {
         PATH = "C:\\WINDOWS\\SYSTEM32;C:\\Program Files\\Docker\\Docker\\resources\\bin"
     }
 
-    stages {
-//        stage('delete Existing clone') {
-//             steps {
-//                 catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
-//                     bat '''rd /q /s .'''
-//                 }
-//             }
-//         }        
+    stages {    
         
         stage('Build image') {
             steps {
-                bat 'docker -v'
+                script{
+                    dockerImage = docker.build("abdullahajaz/i190476_i190695_a2:latest")
+                }
             }
         }
         
@@ -33,3 +28,4 @@ pipeline {
         
     }
 }
+
