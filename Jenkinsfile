@@ -11,7 +11,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script{
-                    dockerImage = docker.build("abdullahajaz/i190476_i190695_a2:latest")
+                    dockerImage = docker.build("abdullahajaz/i190476_i190695_mlops_a2:latest")
                 }
             }
         }
