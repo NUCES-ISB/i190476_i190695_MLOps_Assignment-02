@@ -16,15 +16,15 @@ pipeline {
             }
         }
         
-//         stage('Push image') {
-//             steps {
-//                 script {
-//                     withDockerRegistry([credentialsId: "docker_hub", url: ""]) {
-//                         dockerImage.push()
-//                     }
-//                 }
-//             }
-//         }
+        stage('Push image') {
+            steps {
+                script {
+                    withDockerRegistry([credentialsId: "docker_hub", url: ""]) {
+                        dockerImage.push()
+                    }
+                }
+            }
+        }
         
     }
 }
