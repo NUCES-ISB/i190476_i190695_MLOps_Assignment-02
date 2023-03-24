@@ -1,14 +1,3 @@
-// pipeline {
-//     agent any
-
-//     stages {
-//         stage('Build Docker Image') {
-//             steps {
-//                 echo "Testing"
-//             }
-//         }
-//     }
-// }
 pipeline {
     agent any
     tools {
