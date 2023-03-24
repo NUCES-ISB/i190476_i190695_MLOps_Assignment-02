@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        docker { image 'python:3.9.16' }
-    }
     stages {
         stage('Build Dockerfile') {
             steps {
