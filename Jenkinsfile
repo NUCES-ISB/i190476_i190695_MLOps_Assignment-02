@@ -26,6 +26,12 @@ pipeline {
             }
         }
         
+        stage('Go live') {
+            steps {
+                bat "docker run -d -p 8090:5000 abdullahajaz/i190476_i190695_mlops_a2:latest"
+            }
+        }
+        
     }
 }
 
