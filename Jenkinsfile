@@ -18,7 +18,7 @@ pipeline {
         
         stage('Build image') {
             steps {
-                bat 'set'
+                bat 'docker -v'
             }
         }
         
