@@ -1,10 +1,22 @@
-pipeline {
-    agent any
+// pipeline {
+//     agent any
 
+//     stages {
+//         stage('Build Docker Image') {
+//             steps {
+//                 echo "Testing"
+//             }
+//         }
+//     }
+// }
+pipeline {
+    agent {
+        docker { image 'python:3.9.16' }
+    }
     stages {
-        stage('Build Docker Image') {
+        stage('Test') {
             steps {
-                echo "Testing"
+                sh 'node --version'
             }
         }
     }
