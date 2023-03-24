@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t i190476_i190695 .'
+                sh 'docker build -t i190476_i190695 .'
             }
         }
     }
