@@ -13,7 +13,7 @@ pipeline {
          
         stage('Clone repository') {
             steps {
-                bat '''git clone https://github.com/NUCES-ISB/i190700_i192008_Assignment_2.git .'''
+                bat '''git clone https://github.com/NUCES-ISB/i190476_i190695_MLOps_Assignment-02.git .'''
             }
         }
         
