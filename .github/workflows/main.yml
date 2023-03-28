@@ -1,9 +1,11 @@
 name: MLOps Assignment 2 
 on: 
-  push:
-    branches: [ testing ] 
+  pull_request_target:
+    types: [ closed ]
+    branches: [ main ] 
 jobs:
-  build:
+  if_merged:
+    if: github.event.pull_request.merged == true 
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
