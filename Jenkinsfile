@@ -33,6 +33,9 @@ pipeline {
                 }
             }
         }
+        else {
+            error "Could not build a Docker image."   
+        }
         
     }
 }
