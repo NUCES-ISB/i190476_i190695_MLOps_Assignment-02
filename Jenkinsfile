@@ -11,7 +11,7 @@ pipeline {
         stage('Build image') {
             steps {
                 script{
-                    dockerImage = docker.build("abdullahajaz/i190476_i190695_mlops_a2:latest")
+                    dockerImage = docker.build("icyguy/i190476_i190695_mlops_a2:latest")
                 }
             }
         }
@@ -29,7 +29,7 @@ pipeline {
         
             stage('Go live') {
                 steps {
-                    bat "docker run -d -p 8090:5000 abdullahajaz/i190476_i190695_mlops_a2:latest"
+                    bat "docker run -d -p 8090:5000 icyguy/i190476_i190695_mlops_a2:latest"
                 }
             }
         }
