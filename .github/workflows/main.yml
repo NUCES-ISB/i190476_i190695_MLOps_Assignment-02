@@ -1,7 +1,7 @@
 name: MLOps Assignment 2 
 on: 
   pull_request:
-    types: [ closed ]
+    types: [ submitted ]
     branches: [ main ] 
 jobs:
   if_merged:
