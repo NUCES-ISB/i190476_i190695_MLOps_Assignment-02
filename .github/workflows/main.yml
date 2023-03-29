@@ -1,4 +1,4 @@
-name: MLOps Assignment 2 
+name: Main Branch
 on: 
   pull_request_target:
     types: [ closed ]
