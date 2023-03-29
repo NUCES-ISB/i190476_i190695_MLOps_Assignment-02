@@ -1,11 +1,9 @@
 name: Testing Branch
 on: 
   push:
-#     types: [ closed ]
     branches: [ testing ] 
 jobs:
-  if_merged:
-#     if: github.event.pull_request.merged == true 
+  Build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
