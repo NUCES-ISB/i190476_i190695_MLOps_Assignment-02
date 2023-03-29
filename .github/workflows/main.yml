@@ -1,9 +1,9 @@
-name: MLOps Assignment 2 
+name: Testing Branch
 on: 
-  pull_request:
-    branches: [ main ] 
+  push:
+    branches: [ testing ] 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2

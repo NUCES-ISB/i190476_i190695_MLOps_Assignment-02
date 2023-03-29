@@ -8,30 +8,21 @@ pipeline {
 
     stages {    
         
-        stage('Build image') {
+        stage('Build image, Push to Hub, Go Live') {
             steps {
                 script{
                     dockerImage = docker.build("abdullahajaz/i190476_i190695_mlops_a2:latest")
-                }
-            }
-        }
-        
-        stage('Push image') {
-            steps {
-                script {
-                    withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
-                        dockerImage.push()
+                    if(dockerImage){
+                        withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
+                            dockerImage.push()
+                        }
+                        bat "docker run -d -p 8090:5000 abdullahajaz/i190476_i190695_mlops_a2:latest"
+                    }else{
+                        error "Docker image build failed."
                     }
                 }
             }
-        }
-        
-        stage('Go live') {
-            steps {
-                bat "docker run -d -p 8090:5000 abdullahajaz/i190476_i190695_mlops_a2:latest"
-            }
-        }
-        
+        }        
     }
 }
 
