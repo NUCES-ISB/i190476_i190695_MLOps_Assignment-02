@@ -1,4 +1,4 @@
-name: MLOps Assignment 2 
+name: Testing Branch
 on: 
   push:
 #     types: [ closed ]
