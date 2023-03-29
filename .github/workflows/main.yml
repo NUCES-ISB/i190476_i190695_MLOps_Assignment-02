@@ -2,7 +2,7 @@ name: Testing Branch
 on: 
   push:
 #     types: [ closed ]
-    branches: [ main ] 
+    branches: [ testing ] 
 jobs:
   if_merged:
 #     if: github.event.pull_request.merged == true 
